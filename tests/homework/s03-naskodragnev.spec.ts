@@ -12,5 +12,7 @@ test('open site', async ({ page }) => {
   await page.getByTestId('cs-login-submit').click();
   // Wait to verify we are logged in the dashboard
   await expect(page).toHaveURL('http://localhost:5173/dashboard');
+  // Again check the title to verify we are logged in
+  await expect(page).toHaveTitle(/City Services Portal/);
 
 });
