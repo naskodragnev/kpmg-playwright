@@ -1,0 +1,36 @@
+
+// To run individual file - npx tsx src/hello.ts
+
+
+// Declare function, "slaHours" - name of function, "priority" - declare variable name, "number" - variable type, "string" - type returned.
+function slaHours(priority: number): string { 
+  if (priority === 1) {
+    return "4";
+  }
+  return priority <= 3 ? "24" : "72";
+}
+
+const hours = slaHours(4);
+console.log(hours + " hours.");
+
+
+// Basic array sorting function.
+const array = [1, 6, 34, 2, 151]
+array.sort((a, b) => a - b); // Ascending.
+array.sort((a, b) => b - a); // Descending.
+console.log(array);
+
+// Sorting characters.
+const titles = ['b', 'C', 'a'];
+titles.toSorted((a, b) => a.localeCompare(b));
+
+
+
+// Request build function with ID, title, other stuff.
+function formatRequest(id: number, title: string, prefix = 'REQ', note?: string): string {
+  const base = `${prefix}-${id}: ${title}`;
+  return note ? `${base} (${note})` : base;
+}
+
+const newRequest = formatRequest(9, "Broken light", "REQ", "Not soo urgent. Move for next week.");
+console.log(newRequest);
