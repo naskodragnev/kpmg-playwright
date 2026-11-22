@@ -34,3 +34,22 @@ function formatRequest(id: number, title: string, prefix = 'REQ', note?: string)
 
 const newRequest = formatRequest(9, "Broken light", "REQ", "Not soo urgent. Move for next week.");
 console.log(newRequest);
+
+
+// Nested objects
+type Address = { street: string; city: string; postcode?: string }; // first object
+
+type Citizen = {  // second object
+  name: string;
+  email: string;
+  address: Address;  // first object inside the second object
+};
+
+const citizen: Citizen = {
+  name: 'Ivan Petrov',
+  email: 'ivan@example.com',
+  address: { street: '1 Vitosha Blvd', city: 'Sofia' }, // fill in values in first object variables
+};
+
+citizen.address.city;            // 'Sofia'  // calls second object - than first object - than variable inside the first object
+citizen.address.postcode ?? '-'; // '-'
